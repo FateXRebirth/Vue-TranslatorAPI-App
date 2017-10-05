@@ -20,7 +20,9 @@ export default {
   },
   methods: {
     translateText(text) {
-      alert(text);
+      this.$http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171005T154827Z.1326a8a69fa352c8.fa9d303a5021deebb6ec8b42b83591aa4fce1eb0&lang=ru&text=' + text).then((response) => {
+        alert(response.body.text[0]);
+      })
     }
   }
 }
